@@ -31,6 +31,7 @@ pipeline {
                         chmod +x ${ecrLoginHelper}
                         mv ${ecrLoginHelper} /usr/local/bin/
                         cd ${mainDir}
+                        chmod +x ./gradlew
                         ./gradlew jib -Djib.to.image=${ecrUrl}/${repository}:${currentBuild.number} -Djib.console='plain'
                     """
                 }
